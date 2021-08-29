@@ -1,0 +1,23 @@
+az deployment group what-if `
+  --resource-group Bicep `
+  --template-file main.bicep `
+  --parameter storageAccountName="uniquestring" storageAccountSettings="[{'location':'Australia Southeast', 'sku': 'Standard_LRS'}]" 
+
+
+$arrayParam = @{ location = "Australia Southeast"; sku = "Standard_LRS"}
+New-AzResourceGroupDeployment -ResourceGroupName Bicep `
+  -Whatif `
+  -TemplateFile main.bicep `
+  -storageAccountName "uniquestring" `
+  -storageAccountSettings $arrayParam
+
+
+az deployment group what-if `
+  --resource-group Bicep `
+  --template-file main.bicep `
+  --parameters ./main.parameters.json
+
+New-AzResourceGroupDeployment -ResourceGroupName Bicep `
+  -Whatif `
+  -TemplateFile main.bicep `
+  -TemplateParameterFile ./main.parameters.json
