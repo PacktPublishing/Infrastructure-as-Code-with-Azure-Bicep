@@ -1,0 +1,43 @@
+trigger:
+  - main
+
+name: Deploy Bicep files
+
+variables:
+  vmImageName: "ubuntu-latest"
+
+pool:
+  vmImage: $(vmImageName)
+
+  azureServiceConnection: "AzureDevOpsConnection"
+  resourceGroupName: "Bicep"
+  location: "australiaeast"
+  templateFile: "./main.bicep"
+
+steps:
+- task: AzureCLI@2
+  displayName: Create Resource Group
+  inputs:
+    azureSubscription: $(azureServiceConnection)
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az group create --name $(resourceGroupName) --location $(location)
+      az deployment group create --name BicepDeployment --resource-group $(resourceGroupName) --template-file $(templateFile)
+
+- task: AzurePowerShell@5
+  displayName: Add outputs to environment variables
+  inputs:
+    azureSubscription: $(azureServiceConnection)
+    scriptType: 'inlineScript'
+    inline: |
+      $appURL=(Get-AzResourceGroupDeployment -ResourceGroupName Bicep -Name BicepDeployment).Outputs.appURL.value
+      Write-Host "##vso[task.setvariable variable=APP_URL;]$appURL"
+    azurePowerShellVersion: latestVersion
+
+- task: PowerShell@2
+  displayName: Use the environment variable
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "The APP_URL environment variable value is '$Env:APP_URL'."

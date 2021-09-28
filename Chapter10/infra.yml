@@ -1,0 +1,19 @@
+trigger:
+  - main
+
+name: Deploy Bicep files
+
+variables:
+  vmImageName: "ubuntu-latest"
+
+pool:
+  vmImage: $(vmImageName)
+
+steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
