@@ -1,0 +1,24 @@
+on: [push]
+name: Deploy Bicep template
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - uses: azure/arm-deploy@v1
+      id: deploy
+      name: Deploy the template
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.RG_NAME }}
+        template: ./main.bicep
+        failOnStdErr: false
+
+    - name: Echo blob URL
+      run: |
+        echo ${{ steps.deploy.outputs.blobURL }}

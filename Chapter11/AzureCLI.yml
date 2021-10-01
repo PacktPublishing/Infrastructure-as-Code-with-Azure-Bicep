@@ -1,0 +1,22 @@
+on: [push]
+name: Deploy Bicep template
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Deploy
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.27.1
+        inlineScript: |
+          az group create --name ${{ secrets.RG_NAME }} --location ${{ secrets.LOCATION }}
+          az deployment group create --name BicepDeployment --resource-group ${{ secrets.RG_NAME }} --template-file main.bicep
+          echo "BLOB_URL=$(az deployment group show -g ${{ secrets.RG_NAME }} -n BicepDeployment --query properties.outputs.blobURL.value -o tsv)" >> $GITHUB_ENV
+          
+    - name: print env variable
+      run: echo "${{ env.BLOB_URL }}"
