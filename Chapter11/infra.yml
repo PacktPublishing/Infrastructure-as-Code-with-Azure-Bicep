@@ -1,0 +1,10 @@
+on: [push]
+name: Deploy Bicep template
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: Getting started
+      run: |
+        echo Hello from GitHub Actions
