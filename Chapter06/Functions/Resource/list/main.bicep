@@ -7,12 +7,16 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
+resource serverFarm 'Microsoft.Web/serverfarms@2021-02-01' existing = {
+  name: 'ASP'
+}
+
 resource azureFunction 'Microsoft.Web/sites@2020-12-01' = {
   name: 'name'
   location: resourceGroup().location
   kind: 'functionapp'
   properties: {
-    serverFarmId: 'serverfarms.id'
+    serverFarmId: serverFarm.id
     siteConfig: {
       appSettings: [
         {
