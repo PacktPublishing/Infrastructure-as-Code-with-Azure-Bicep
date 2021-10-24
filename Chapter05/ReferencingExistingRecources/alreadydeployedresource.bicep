@@ -6,6 +6,7 @@ resource container 'Microsoft.Storage/storageAccounts/blobServices/containers@20
   name: '${stg.name}/default/mycontainer'
   properties: {
     denyEncryptionScopeOverride: true
+    defaultEncryptionScope: '$account-encryption-key'
     publicAccess: 'None'
     metadata: {}
   }

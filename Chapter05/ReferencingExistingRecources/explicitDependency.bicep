@@ -1,12 +1,19 @@
-resource dnsZone 'Microsoft.Network/dnsZones@2018-05-01' = {
-  name: 'demoeZone1'
-  location: 'global'
+resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+  name: 'ASP'
+  location: resourceGroup().location
+  sku: {
+    name: 'S1'
+  }
 }
 
-resource otherZone 'Microsoft.Network/dnsZones@2018-05-01' = {
-  name: 'demoZone2'
-  location: 'global'
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'app${uniqueString(resourceGroup().id)}'
+  location: resourceGroup().location
+  kind: 'app'
+  properties: {
+    serverFarmId: appServicePlan.id
+  }
   dependsOn: [
-    dnsZone
+    appServicePlan
   ]
 }
