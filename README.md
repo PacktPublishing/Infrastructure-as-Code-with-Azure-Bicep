@@ -57,7 +57,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 ### Related products
 * Note [[Packt]](https://www.packtpub.com/product/azure-for-architects-third-edition/9781839215865?utm_source=github&utm_medium=repository&utm_campaign=9781839215865) [[Amazon]](https://www.amazon.com/dp/1839215860)
 
-* About the Authors [[Packt]](https://www.packtpub.com/product/azure-devops-explained/9781800563513?utm_source=github&utm_medium=repository&utm_campaign=9781800563513) [[Amazon]](https://www.amazon.com/dp/1800563515)
+* Azure DevOps Explained [[Packt]](https://www.packtpub.com/product/azure-devops-explained/9781800563513?utm_source=github&utm_medium=repository&utm_campaign=9781800563513) [[Amazon]](https://www.amazon.com/dp/1800563515)
 
 ## Get to Know the Author
 **Yaser Adel Mehraban**
