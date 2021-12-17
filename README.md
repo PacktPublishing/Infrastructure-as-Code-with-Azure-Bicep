@@ -1,80 +1,69 @@
-# Infrastructure as Code with Azure Bicep
+# About the Author
 
-This is the code repository for Infrastructure as Code with Azure Bicep published by Packt.
+<a href="https://www.packtpub.com/product/infrastructure-as-code-with-azure-bicep/9781801813747?utm_source=github&utm_medium=repository&utm_campaign=9781801813747"><img src="https://static.packt-cdn.com/products/9781801813747/cover/smaller" alt="About the Author" height="256px" align="right"></a>
 
-## Background
+This is the code repository for [About the Author](https://www.packtpub.com/product/infrastructure-as-code-with-azure-bicep/9781801813747?utm_source=github&utm_medium=repository&utm_campaign=9781801813747), published by Packt.
 
-The idea to write this book hit me when Azure Bicep was released and after working with ARM templates for quite a while to deploy resources on Microsoft Azure. I truly believe resource deployment should not be complex and infrastructure as code is a must have for every organization.
-In this book you will start with some basics and a review on Azure ARM templates and why there was a need for a revision to remove some barriers and make it easier for cloud engineers and DevOps teams to deploy their resources using code. From installation to writing your first template in your local development environment, testing, and deploying it locally, you will learn it all. You will find out about Bicep’s syntax and how to write maintainable and reusable templates which can be used in your continuous deployment pipelines with ease. And at the end there will be some of the best practices and industry standards which you need to be aware of.
-The book is structured in a way which goes from basics to advanced topics, so that you would not have any problems following along even if you have not had prior experience with Azure ARM templates or resource deployments via templates before.
+**Streamline Azure resource deployment by bypassing ARM complexities**
 
-## Who this book is for
+## What is this book about?
+It�s no secret that developers don't like using JSON files to declare their resources in Azure because of issues such as parameter duplication and not being able to use comments in templates. Azure Bicep helps resolve these issues and this book will guide you as a developer or DevOps engineer to get the most out of the Bicep language. 
 
-This book has targeted cloud engineers, DevOps teams and developers who are responsible for creating their infrastructure as code (IoC) to deploy their resources in their Azure environment.
+This book covers the following exciting features:
+* Get started with Azure Bicep and install the necessary tools
+* Understand the details of how to define resources with Bicep
+* Use modules to create templates for different teams in your company
+* Optimize templates using expressions, conditions, and loops
+* Make customizable templates using parameters, variables, and functions
+* Deploy templates locally or from Azure DevOps or GitHub
+* Stay on top of your IaC with best practices and industry standards
 
-## What this book covers
+If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1801813744) today!
 
-- **Chapter 1**: Introduction to Azure Bicep, this chapter will describe what is Azure Bicep, why it was created, and some of the goals it’s trying to achieve.
-- **Chapter 2**: Installing Azure Bicep, in this chapter you will learn how to install Azure Bicep on different operating systems along with Azure CLI and Azure PowerShell.
-- **Chapter 3**: Authoring Experience, this chapter is all about the developer experience when writing Bicep templates in their local development, especially using Visual Studio Code and its Bicep extension.
-- **Chapter 4**: Compiling and Decompiling to Bicep files, this chapter will cover how to compile Bicep templates to ARM templates before deployment, or if there is an existing ARM template, how to decompile it to a Bicep file.
-- **Chapter 5**: Defining Resources, from this chapter you will learn how to define resources in a Bicep template, their properties, and dependencies, and some of the language specification which helps you to understand why Bicep is designed the way it is.
-- **Chapter 6**: Using Parameters, Variables and Template Functions, this chapter takes you one step further to make your template customizable, remove duplicate expressions using variables, and use the template functions to create better, more reusable templates.
-- **Chapter 7**: Understanding Expressions, Conditions and Loops, this chapter will expand on the previous chapter to help you write template expressions, use logical flows and conditions, and use loops to create a resource multiple times without repeating the syntax.
-- **Chapter 8**: Defining Modules and Utilizing Outputs, this chapter will introduce modules to you and helps you create modular, reusable templates which not only can be consumed by own templates, but also other teams within your organization. It also reviews template outputs and how to send information about the deployment outside of your templates.
-- **Chapter 9**: Deploying a Local Template, from this chapter you will start the process of validating and deploying your templates. Before you start using your templates in your CI/CD pipelines, you need to know how to test and deploy them locally, and that is what you will learn here.
-- **Chapter 10**: Using Bicep in Azure Pipelines, this chapter will help you setup an Azure Pipeline to deploy your Azure resources from Azure Repos. It covers not only creation of the pipeline, but also how to add the necessary steps to validate and deploy a Bicep template.
-- **Chapter 11**: Using Bicep in GitHub Actions, this chapter will help you validate and deploy your Bicep templates from GitHub using GitHub Actions workflow.
-- **Chapter 12**: Exploring Best Practices for Future Maintenance, this chapter will complement your learnings by introducing you to some best practices which take your Bicep template creation to the next level.
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+alt="https://www.packtpub.com/" border="5" /></a>
 
-## To get the most out of this book
+## Instructions and Navigations
+All of the code is organized into folders. For example, Chapter02.
 
-To take full advantage of this book, you will need to have the following list of software installed on your system. You also need to have an Azure DevOps and a GitHub account. Finally, you need to have an active Azure Subscription which you can get for free, all of which has been described in the book.
-| Software/Hardware covered in the book | OS Requirements |
-|--------------|-------------|
-| Azure CLI | Windows, Mac OS X, and Linux (Any) |
-| Azure PowerShell | Windows, Mac OS X, and Linux (Any) |
-| Visual Studio Code | Windows, Mac OS X, and Linux (Any) |
-| Git | Windows, Mac OS X, and Linux (Any) |
-
-I highly recommend the readers to follow along with the book to get the best out of it, also feel free to use other type of resources for your own benefit and when in doubt, always refer to [Microsoft’s documentation on Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview).
-
-## Conventions used
-
-There are several text conventions used throughout this book.
-
-`Code in text`: Indicates code words in text, database table names, folder names, filenames, file extensions, pathnames, dummy URLs, user input, and Twitter handles.
-
-Here is an example: "If you wanted to upgrade your Bicep you can use the `upgrade` command."
-
-A block of code is set as follows:
-
-```JAVASCRIPT
+The code will look like the following:
+```
 resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'name'
-  location: resourceGroup().location
-  kind: 'StorageV2'
-  sku: {
-    name: 'Standard_LRS'
-  }
+ name: 'name'
+ location: resourceGroup().location
+ kind: 'StorageV2'
+ sku: {
+ name: 'Standard_LRS'
+ }
 }
 output storageKey string = stg.listKeys().key[0].value
 ```
 
-Any command-line input or output is written as follows:
+**Following is what you need for this book:**
+This book is for cloud engineers, developers, and DevOps engineers who are responsible for writing templates to deploy resources in Microsoft Azure and contributing to CI/CD pipelines. Professionals who want to get started with DevOps and Infrastructure as Code when it comes to working with Microsoft Azure will also benefit from reading this book. Readers are expected to have a basic understanding of CI/CD concepts, must have worked with ARM templates to deploy resources to Azure, and must have used or be familiar with Azure DevOps or GitHub Actions for their CI/CD pipelines.
 
-```bash
-brew update && brew install azure-cli
-```
+With the following software and hardware list you can run all code files present in the book (Chapter 1-12).
+### Software and Hardware List
+| Chapter | Software required | OS required |
+| -------- | ------------------------------------ | ----------------------------------- |
+| 1-12 | Azure CLI | Windows, Mac OS X, and Linux (Any) |
+| 1-12 | Azure PowerShell | Windows, Mac OS X, and Linux (Any) |
+| 1-12 | Visual Studio Code | Windows, Mac OS X, and Linux (Any) |
+| 1-12 | Git | Windows, Mac OS X, and Linux (Any) |
 
-**Bold**: Indicates a new term, an important word, or words that you see onscreen. For example, words in menus or dialog boxes appear in the text like this.
 
-Here is an example: "You can find the complete schema for all Azure resources in the **Schema** section on Azure documentation."
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801813747_ColorImages.pdf).
 
-## Reviews
+### Related products
+* Note [[Packt]](https://www.packtpub.com/product/azure-for-architects-third-edition/9781839215865?utm_source=github&utm_medium=repository&utm_campaign=9781839215865) [[Amazon]](https://www.amazon.com/dp/1839215860)
 
-Please leave a review. Once you have read and used this book, why not leave a review on the site that you purchased it from?
+* About the Authors [[Packt]](https://www.packtpub.com/product/azure-devops-explained/9781800563513?utm_source=github&utm_medium=repository&utm_campaign=9781800563513) [[Amazon]](https://www.amazon.com/dp/1800563515)
 
-Potential readers can then see and use your unbiased opinion to make purchase decisions, we at Packt can understand what you think about our products, and our authors can see your feedback on their book. Thank you!
+## Get to Know the Author
+**Yaser Adel Mehraban**
+is a self-taught and motivated software engineer and solution architect who lives in the most livable city in the world, Melbourne, Australia. He is currently working as an Azure technical trainer for Microsoft. Some might know him as the almond croissant addict cleverly disguised as a successful web developer.
+He has over a decade of experience working in a variety of different teams and has helped them adapt DevOps and IaC to be able to increase team productivity when it comes to cloud resource deployment. Furthermore, he has a true passion for sharing knowledge, which has motivated him to give many international conference talks, write hundreds of technical blog posts, and publish courses on platforms such as Pluralsight.
+When he is not working, he mostly spends his time with his family or on his woodworking projects, which vary depending on how much space is left in the house.
 
-For more information about Packt, please visit [packt.com](https://packt.com).
+
+
