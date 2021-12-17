@@ -2,7 +2,7 @@
 
 <a href="https://www.packtpub.com/product/infrastructure-as-code-with-azure-bicep/9781801813747?utm_source=github&utm_medium=repository&utm_campaign=9781801813747"><img src="https://static.packt-cdn.com/products/9781801813747/cover/smaller" alt="Infrastructure as Code with Azure Bicep" height="256px" align="right"></a>
 
-This is the code repository for [About the Author](https://www.packtpub.com/product/infrastructure-as-code-with-azure-bicep/9781801813747?utm_source=github&utm_medium=repository&utm_campaign=9781801813747), published by Packt.
+This is the code repository for [Infrastructure as Code with Azure Bicep](https://www.packtpub.com/product/infrastructure-as-code-with-azure-bicep/9781801813747?utm_source=github&utm_medium=repository&utm_campaign=9781801813747), published by Packt.
 
 **Streamline Azure resource deployment by bypassing ARM complexities**
 
