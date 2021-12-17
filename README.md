@@ -7,7 +7,7 @@ This is the code repository for [About the Author](https://www.packtpub.com/prod
 **Streamline Azure resource deployment by bypassing ARM complexities**
 
 ## What is this book about?
-It�s no secret that developers don't like using JSON files to declare their resources in Azure because of issues such as parameter duplication and not being able to use comments in templates. Azure Bicep helps resolve these issues and this book will guide you as a developer or DevOps engineer to get the most out of the Bicep language. 
+It's no secret that developers don't like using JSON files to declare their resources in Azure because of issues such as parameter duplication and not being able to use comments in templates. Azure Bicep helps resolve these issues and this book will guide you as a developer or DevOps engineer to get the most out of the Bicep language. 
 
 This book covers the following exciting features:
 * Get started with Azure Bicep and install the necessary tools
@@ -55,7 +55,7 @@ With the following software and hardware list you can run all code files present
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801813747_ColorImages.pdf).
 
 ### Related products
-* Note [[Packt]](https://www.packtpub.com/product/azure-for-architects-third-edition/9781839215865?utm_source=github&utm_medium=repository&utm_campaign=9781839215865) [[Amazon]](https://www.amazon.com/dp/1839215860)
+* Azure for Architects - Third Edition [[Packt]](https://www.packtpub.com/product/azure-for-architects-third-edition/9781839215865?utm_source=github&utm_medium=repository&utm_campaign=9781839215865) [[Amazon]](https://www.amazon.com/dp/1839215860)
 
 * Azure DevOps Explained [[Packt]](https://www.packtpub.com/product/azure-devops-explained/9781800563513?utm_source=github&utm_medium=repository&utm_campaign=9781800563513) [[Amazon]](https://www.amazon.com/dp/1800563515)
 
